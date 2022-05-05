@@ -1,7 +1,3 @@
-import reactDom from "react-dom";
-import { Header } from "react-navigation-stack";
-
-
 export default {
     color: '#A2273C',
     Button: {

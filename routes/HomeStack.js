@@ -77,12 +77,25 @@ export default createAppContainer(MeteoTabNavigator)
 
 
 
-import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import About from "../components/About";
-import Search from "../components/Search"
-import { Text, View, Image } from "react-native";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createStackNavigator } from '@react-navigation/stack'
+import React from 'react'
+import { Image, Text, View } from 'react-native'
+import About from '../components/About'
+import Meteo from '../components/Meteo'
+import Search from '../components/Search'
 import style from '../style'
+
+const Stack = createStackNavigator()
+
+function StackScreen() {
+    return (
+        <Stack.Navigator initialRouteName="Rechercher" headerMode="none">
+            <Stack.Screen name="Rechercher" component={Search} />
+            <Stack.Screen name="Meteo" component={Meteo} />
+        </Stack.Navigator>
+    )
+}
 
 const Tab = createBottomTabNavigator()
 
@@ -126,7 +139,7 @@ const Tabs = () => {
                 )
 
             }} />
-            <Tab.Screen name="Recherche" component={Search} options={{
+            <Tab.Screen name="Recherche" component={StackScreen} options={{
                 tabBarIcon: ({ focused }) => (
                     <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
                         <Image

@@ -2,7 +2,7 @@ import React from 'react'
 import { Text, View, TextInput, Button } from "react-native"
 import style from '../style'
 import { withNavigation } from 'react-navigation';
-import { MyStack } from '../routes/searchstack'
+import axios from 'axios'
 
 
 
@@ -11,7 +11,8 @@ class Search extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            city: ''
+            city: '',
+            data: { main: { temp: -10 } }
         }
         this.search = ""
     }
@@ -24,7 +25,15 @@ class Search extends React.Component {
 
     submit() {
         this.setState({ city: this.search })
+        this.fetchweather(this.search)
+    }
 
+    async fetchweather(city) {
+        let url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=a6f8939ab215ab10c940d4a525dd91c0'
+        console.log(url)
+        let response = await axios.get(url)
+        this.setState({ data: response.data });
+        this.props.navigation.navigate('Meteo', { data: response.data })
     }
 
 
@@ -38,7 +47,10 @@ class Search extends React.Component {
 
                 />
                 <Button color={style.color} onPress={() => this.submit()} title="Rechercher" />
+                <Text>{this.state.data.main.temp}</Text>
+                <Text>{this.state.city}</Text>
             </View>
+
         )
     }
 }
