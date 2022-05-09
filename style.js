@@ -1,3 +1,5 @@
+import Meteo from "./components/Meteo";
+
 export default {
     color: '#A2273C',
     Button: {
@@ -28,5 +30,18 @@ export default {
 
     headertitle: {
         color: '#ffffff'
+    },
+
+    results: {
+        borderWidth: 1,
+        borderColor: '#A2273C',
+        backgroundColor: '#CD5C5C',
+        margin: 3,
+        borderRadius: 3
+    },
+
+    titre: {
+        textAlign: 'center',
+        marginBottom: 10
     }
 }

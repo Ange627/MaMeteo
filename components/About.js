@@ -15,7 +15,8 @@ export default class About extends React.Component {
         return (
             <View style={style.container} >
                 <Text style={style.title}>
-                    a propos de l'application
+                    à propos de l'application...
+                    Cette application permet de connaitre la météo en fonction de la ville renseigné, elle prend en compte toutes les villes du monde.
                 </Text>
                 <Text>
 

@@ -9,12 +9,21 @@ class Meteo extends React.Component {
 
     render() {
 
-        console.log(this.props)
         const { data } = this.props.route.params
         return (
+
             <View style={style.container} >
-                <Text style={style.title}>
-                    {"Meteo température : " + data.main.temp}
+                <Text style={style.titre}>
+                    {"La météo de " + data.name}
+                </Text>
+                <Text style={style.results}>
+                    {"température : " + data.main.temp}
+                </Text>
+                <Text style={style.results}>
+                    {"Ressenti : " + data.main.feels_like}
+                </Text>
+                <Text style={style.results}>
+                    {"Humidité : " + data.main.humidity}
                 </Text>
 
             </View>
