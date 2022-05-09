@@ -17,13 +17,13 @@ class Meteo extends React.Component {
                     {"La météo de " + data.name}
                 </Text>
                 <Text style={style.results}>
-                    {"température : " + data.main.temp}
+                    {"température : " + data.main.temp + " °C"}
                 </Text>
                 <Text style={style.results}>
-                    {"Ressenti : " + data.main.feels_like}
+                    {"Ressenti : " + data.main.feels_like + " °C"}
                 </Text>
                 <Text style={style.results}>
-                    {"Humidité : " + data.main.humidity}
+                    {"Humidité : " + data.main.humidity + " %"}
                 </Text>
 
             </View>

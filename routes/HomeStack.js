@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
 import { Image, Text, View } from 'react-native'
@@ -11,6 +12,7 @@ const Stack = createStackNavigator()
 
 function StackScreen() {
     return (
+
         <Stack.Navigator initialRouteName="Rechercher" headerMode="none">
             <Stack.Screen name="Rechercher" component={Search} />
             <Stack.Screen name="Meteo" component={Meteo} />
@@ -19,7 +21,6 @@ function StackScreen() {
 }
 
 const Tab = createBottomTabNavigator()
-
 
 
 const Tabs = () => {
